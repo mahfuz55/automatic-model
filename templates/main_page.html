@@ -6,24 +6,27 @@
      	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
      	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
     	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<title> mahfuz </title>
+		
+		
 	</head>
 
-	<title> AutoML </title>
+	<body class="text-secondary bg-dark" >
 
-	<div class="jumbotron">
-  		<h1 class="display-4">Welcome to AutoLearn.AI!</h1>
-  		<p class="lead"> AutoLearn is an automated machine learning and data analytics tool.  </p>
-  		<hr class="my-4">
-  		<p>It uses genetic algorithms provided in Python's TPOT library to train and validate multiple machine learning models in order to find the best ones.</p>
+	<div  class="jumbotron text-info bg-dark">
+  		<h1 class="display-6">MAHFUZ's ML</h1>
+  		<p class="text-secondary" class="lead"> Easy to use Machine Learning</p>
+  		<hr class="bg-dark" class="my-4">
+  		<p class="text-secondary">Get the better machine learning model </p>
 	</div>
 
-	<div class="jumbotron bg-light">
+	<div class="jumbotron bg-info text-dark">
 		<form method="POST" enctype=multipart/form-data>
+			
 			<div class="form-group">
-				<h3><label for="problemType">What type of problem is this?</label></h3>
+				<h3><label for="problemType">Problem Type *</label></h3>
 				<select class="form-control" name="task" id="problemType">
 					<option>Classification</option>
 					<option>Regression</option>
@@ -31,31 +34,35 @@
 			</div>
 			<br>
 			<div class="form-group">
-				<h3><label for="dataset">Upload Data</label></h3>
+				<h3><label for="dataset">Dataset *</label></h3>
 
-				<input type="file" name="file" id="dataset">
+				<input style="border-radius: 5px;" class="bg-dark text-white" type="file" name="file" id="dataset">
 			</div>
 			<br>
 			<div class="form-group">
-				<h3>What is the name of the target column?</h3>
+				<h3> target column * </h3>
 				<input type="text" class="form-control" name="targetColumn" placeholder="Enter target column">
 			</div>
+			
 			<br>
 			<div class="form-group">
-				<h3><label for="formControlRange">Accuracy/Training Time Tradeoff</label></h3>
-				<label class="pull-left">Faster Training Time</label>
-				<label class="pull-right">More Accuracy</label>
-				<input type="range" class="form-control-range" name="speed" id="formControlRange">
+				<h3><label for="formControlRange">Taining Time V/S Accuracy *</label></h3>
+				<div style=" padding : 5px 10px ; border-radius : 5px;" class=" bg-dark">
+				<label class="pull-left text-white">Quicker</label>
+				<label class="pull-right text-white">More Accuracy</label>
+					<input type="range"  class="form-control-range " name="speed" id="formControlRange">
+
+				</div>
 			</div>
 			<br>
 
-			<button type="submit" class="btn btn-primary">Run AutoLearn</button>
+			<button type="submit" class="btn btn-dark"> SUBMIT </button>
 		</form>
 	</div>
 
 
 	{% if metrics is not none %}
-		<div class="jumbotron bg-white">
+		<div class="jumbotron" style="background: #B8D130">
   			<h2>{{ metrics['task'] }} Results </h2>
   			<br>
 
@@ -111,10 +118,12 @@
 	  		 <br>
 
   		</div>
-  		<div class="jumbotron bg-light">
-			<h2>Feature Importances</h2>
-			<img src="{{ metrics['feat_importances'] }}"></img>
+  		<div class="jumbotron" style="background: #B8D130">
+			<h2>Important features</h2>
+			<img style="width : 100% ; object-fit: contain" src="{{ metrics['feat_importances'] }}"></img>
 		</div>
 	{% endif %}
+</body>
+	
 
 </html>

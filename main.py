@@ -54,7 +54,7 @@ def scale_speed(speed):
 @app.route('/', methods=['GET', 'POST'])
 def trainModel():
 	global AutoML_Engine
-	print('Running train model function')
+	print('trainign ...')
 	print(request)
 
 
@@ -68,7 +68,7 @@ def trainModel():
 			filename = secure_filename(file.filename)
 			full_filename = os.path.join(app.config['UPLOAD_FOLDER'], filename)
 			file.save(full_filename)
-			#print('File upload success!')
+			
 			speed = scale_speed(int(request.form.get("speed")))
 			task = request.form.get("task")
 			target = request.form.get("targetColumn")
@@ -91,4 +91,4 @@ def trainModel():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8088, debug=True)
+    app.run(host='0.0.0.0', port= 6776, debug=True)
